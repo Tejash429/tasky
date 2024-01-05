@@ -28,7 +28,7 @@ export default function Login() {
   }
   return (
     <>
-      <button
+      {/* <button
         className='btn'
         onClick={() =>
           (
@@ -36,9 +36,9 @@ export default function Login() {
           ).showModal()
         }
       >
-        open modal
-      </button>
-      <dialog id='my_modal_2' className='modal  '>
+        Login
+      </button> */}
+      <dialog id='my_modal_2' className='modal' open>
         <div className='modal-box flex flex-col justify-center text-center '>
           <div className=' flex flex-col gap-1 text-center text-white font-semibold text-lg mb-3 leading-7'>
             Login to your Account

@@ -1,28 +1,30 @@
 'use client';
+import toast from 'react-hot-toast';
 
+import LoginButtons from '@/app/components/form-elements/buttons';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
 import { useState } from 'react';
-import LoginButtons from '@/app/components/form-elements/buttons';
-import toast from 'react-hot-toast';
 
-export default function Register() {
-  const supabase = createClientComponentClient();
-  const [email, setEmail] = useState('');
+export default function Login() {
   const [isDisabled, setIsDisabled] = useState(false);
   const notify = () => toast('Check Your mail for magic Link');
 
+  const [email, setEmail] = useState('');
+
+  const supabase = createClientComponentClient();
   async function signInWithEmail() {
     const { data, error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: 'http://localhost:3000/login',
+        emailRedirectTo: 'http://localhost:3000/',
       },
     });
     if (error) {
       console.log(error);
-      console.log(data);
     }
+    console.log(data);
+    console.log(error);
   }
   return (
     <>
@@ -34,12 +36,12 @@ export default function Register() {
           ).showModal()
         }
       >
-        open modal
+        Login
       </button> */}
-      <dialog id='my_modal_2' className='modal' open>
+      <dialog className='modal' open>
         <div className='modal-box flex flex-col justify-center text-center '>
           <div className=' flex flex-col gap-1 text-center text-white font-semibold text-lg mb-3 leading-7'>
-            Create an Account
+            Login to your Account
           </div>
           <div className='flex flex-col gap-3'>
             <LoginButtons i={0} />
@@ -64,26 +66,33 @@ export default function Register() {
           </label>
 
           <button
-            className='btn  btn-primary w-full text'
+            className='btn btn-primary w-full '
             onClick={() => {
               signInWithEmail();
-              notify();
               isDisabled ? setIsDisabled(false) : setIsDisabled(true);
+              notify();
             }}
             disabled={isDisabled}
           >
-            {isDisabled ? 'Sending...' : 'Send Magic Link'}
+            {isDisabled ? 'Logging in ...' : 'Login'}
           </button>
 
           <div className='flex justify-center gap-2 mt-2 '>
             <p className='text-center text-sm font-semibold'>
-              Already have an account?
+              Don&apos;t have an Account yet?
             </p>
-            <Link className='cursor-pointer  text-sm btn-link' href={'/login'}>
-              Login
+            <Link
+              className='cursor-pointer  text-sm btn-link'
+              href={'/register'}
+            >
+              Register
             </Link>
           </div>
         </div>
+
+        <form method='dialog' className='modal-backdrop text-white'>
+          <button>close</button>
+        </form>
       </dialog>
     </>
   );

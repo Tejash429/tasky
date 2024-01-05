@@ -26,7 +26,7 @@ export default function Register() {
   }
   return (
     <>
-      {/* <button
+      <button
         className='btn'
         onClick={() =>
           (
@@ -35,11 +35,11 @@ export default function Register() {
         }
       >
         open modal
-      </button> */}
-      <dialog id='my_modal_2' className='modal' open>
+      </button>
+      <dialog id='my_modal_2' className='modal  '>
         <div className='modal-box flex flex-col justify-center text-center '>
           <div className=' flex flex-col gap-1 text-center text-white font-semibold text-lg mb-3 leading-7'>
-            Create an Account
+            Login
           </div>
           <div className='flex flex-col gap-3'>
             <LoginButtons i={0} />
@@ -84,6 +84,10 @@ export default function Register() {
             </Link>
           </div>
         </div>
+
+        <form method='dialog' className='modal-backdrop text-white'>
+          <button>close</button>
+        </form>
       </dialog>
     </>
   );
