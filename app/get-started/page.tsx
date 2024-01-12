@@ -1,46 +1,47 @@
-'use client';
-import React from 'react';
-import NavBarStarted from '../components/navBarStarted';
-import Link from 'next/link';
+import Link from "next/link";
+import { Poppins } from "next/font/google";
+import { Medal } from "lucide-react";
+import { Button } from "@nextui-org/react";
 
-export default function GetStarted() {
+
+const textFont = Poppins({
+  subsets: ["latin"],
+  weight: [
+    "100",
+    "200",
+    "300",
+    "400",
+    "500",
+    "600",
+    "700",
+    "800",
+    "900"
+  ],
+});
+
+const MarketingPage = () => {
   return (
-    <div className=''>
-      <link
-        href='https://cdn.jsdelivr.net/npm/daisyui@4.4.20/dist/full.min.css'
-        rel='stylesheet'
-        type='text/css'
-      />
-
-      <div className=' navbar bg-base-300'>
-        <div className='container'>
-          <div className='navbar-start text-xl pl-3'>Tasky</div>
-          <div className='navbar-center hidden lg:flex'>
-            <ul className='menu menu-horizontal px-1'>
-              <li>
-                <a>Home</a>
-              </li>
-              <li>
-                <a>About</a>
-              </li>
-              <li>
-                <a>Contect</a>
-              </li>
-            </ul>
-          </div>
-          <div className='navbar-end flex gap-3 justify-end'>
-            <Link href={'/login'} className='btn'>
-              Login
-            </Link>
-            <Link href={'/register'} className='btn'>
-              Register
-            </Link>
-          </div>
-        </div>
+    <div className="flex items-center justify-center flex-col h-screen gap-4">
+      <div className=" flex items-center border shadow-sm p-4 bg-amber-100 text-amber-700 rounded-full uppercase">
+        <Medal className="h-6 w-6 mr-2" />
+        No 1 task managment
       </div>
-      <div className=''>
-        <NavBarStarted />
+      <h1 className="text-3xl md:text-6xl text-center text-neutral-800 ">
+        Tasky helps team move
+      </h1>
+      <div className="text-3xl md:text-6xl bg-gradient-to-r from-lochmara to-amaranth text-white px-4 p-2 rounded-md pb-4 w-fit">
+        work forward.
       </div>
+      <div className="text-sm md:text-xl text-neutral-400  max-w-md md:max-w-3xl text-center mx-auto">
+        Collaborate, manage projects, and reach new productivity peaks. From high rises to the home office, the way your team works is unique - accomplish it all with Tasky.
+      </div>
+      <Link href='/register'>
+        <Button color="primary" variant="ghost" className="text-black">
+          Get Tasky for free
+        </Button>
+      </Link>
     </div>
   );
-}
+};
+
+export default MarketingPage;
