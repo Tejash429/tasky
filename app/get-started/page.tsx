@@ -1,23 +1,7 @@
 import Link from "next/link";
-import { Poppins } from "next/font/google";
 import { Medal } from "lucide-react";
 import { Button } from "@nextui-org/react";
-
-
-const textFont = Poppins({
-  subsets: ["latin"],
-  weight: [
-    "100",
-    "200",
-    "300",
-    "400",
-    "500",
-    "600",
-    "700",
-    "800",
-    "900"
-  ],
-});
+import Image from "next/image";
 
 const MarketingPage = () => {
   return (

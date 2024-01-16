@@ -24,7 +24,6 @@ const config: Config = {
         'midnightBlue': '#0E2453',
         'lochmara': '#2E6A9D',
       },
-
     },
   },
   darkMode: 'class',
