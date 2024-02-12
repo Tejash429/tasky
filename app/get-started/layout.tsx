@@ -1,19 +1,11 @@
+import { Navbar } from './components/navbar';
 
-import { Navbar } from "./components/navbar";
-
-const MarketingLayout = ({
-  children
-}: {
-  children: React.ReactNode;
-}) => {
+const MarketingLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className=" bg-slate-100">
+    <main className='  bg-slate-100'>
       <Navbar />
-      <main className="  bg-slate-100">
-        {children}
-      </main>
-    
-    </div>
+      {children}
+    </main>
   );
 };
 
