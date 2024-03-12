@@ -17,7 +17,7 @@ export default function Login() {
     const { data, error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: 'http://localhost:3000/',
+        emailRedirectTo: 'http://localhost:3000/dashboard',
       },
     });
     if (error) {
@@ -28,16 +28,6 @@ export default function Login() {
   }
   return (
     <>
-      {/* <button
-        className='btn'
-        onClick={() =>
-          (
-            document.getElementById('my_modal_2') as HTMLDialogElement
-          ).showModal()
-        }
-      >
-        Login
-      </button> */}
       <dialog id='my_modal_2' className='modal' open>
         <div className='modal-box flex flex-col justify-center text-center '>
           <div className=' flex flex-col gap-1 text-center text-white font-semibold text-lg mb-3 leading-7'>
@@ -89,10 +79,6 @@ export default function Login() {
             </Link>
           </div>
         </div>
-
-        <form method='dialog' className='modal-backdrop text-white'>
-          <button>close</button>
-        </form>
       </dialog>
     </>
   );

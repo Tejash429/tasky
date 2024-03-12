@@ -14,6 +14,7 @@ export default function LoginButtons({ i }: { i: number }) {
     if (error) {
       throw error;
     }
+    console.log(data);
   }
 
   async function signInWithGithub() {
@@ -23,6 +24,7 @@ export default function LoginButtons({ i }: { i: number }) {
     if (error) {
       throw error;
     }
+    console.log(data);
   }
   return (
     <button

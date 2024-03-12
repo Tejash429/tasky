@@ -1,10 +1,11 @@
 import React from 'react';
+import Task from './task';
 
 export default function content() {
   return (
-    <div className='p-4 '>
+    <div className='h-screen bg-[#191A23] text-center'>
       <div className=''>
-        <p>hello</p>
+        <Task />
       </div>
     </div>
   );
