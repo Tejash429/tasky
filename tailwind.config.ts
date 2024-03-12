@@ -8,6 +8,7 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
+
   daisyui: {
     themes: ['night'],
   },
@@ -19,12 +20,11 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        'bittersweet': '#F97C5C',
-        'amaranth': '#EA2A4F',
-        'midnightBlue': '#0E2453',
-        'lochmara': '#2E6A9D',
+        bittersweet: '#F97C5C',
+        amaranth: '#EA2A4F',
+        midnightBlue: '#0E2453',
+        lochmara: '#2E6A9D',
       },
-
     },
   },
   darkMode: 'class',

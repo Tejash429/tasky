@@ -26,16 +26,6 @@ export default function Register() {
   }
   return (
     <>
-      {/* <button
-        className='btn'
-        onClick={() =>
-          (
-            document.getElementById('my_modal_2') as HTMLDialogElement
-          ).showModal()
-        }
-      >
-        open modal
-      </button> */}
       <dialog id='my_modal_2' className='modal' open>
         <div className='modal-box flex flex-col justify-center text-center '>
           <div className=' flex flex-col gap-1 text-center text-white font-semibold text-lg mb-3 leading-7'>
