@@ -4,9 +4,7 @@ import SideBar from './sideBar';
 export default function SearchTask() {
     return (
         <div className="">
-            <div>
-                <SideBar />
-            </div>
+            <SideBar />
             <div className="ml-[230px] text-[#FFFFFF] bg-[#191A23] max-h-14 border-b border-[#2C2D3C]">
                 <form className=" mx-auto">
                     <label className="mb-2 text-sm font-medium text-gray-900 sr-only bg-transparent">Search</label>

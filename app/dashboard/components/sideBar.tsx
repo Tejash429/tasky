@@ -2,7 +2,6 @@
 import { Folder, Search, Users, User } from 'lucide-react';
 import React from 'react';
 import CreateIssueModal from './createIssueModal';
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, Avatar } from "@nextui-org/react";
 
 
 export default function SideBar() {
