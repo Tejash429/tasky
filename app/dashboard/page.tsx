@@ -6,7 +6,9 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { revalidatePath } from 'next/cache';
 
 export default async function page() {
-  const supabase = createServerComponentClient({ cookies });
+  const cokkieStore = cookies();
+
+  const supabase = createServerComponentClient({ cookies: () => cokkieStore });
 
   const { data, error } = await supabase.auth.refreshSession();
   const { session, user } = data;
@@ -19,12 +21,9 @@ export default async function page() {
 
   return (
     <>
-      <div className=''>
-        <SideBar />
-        <div className='ml-[228px]'>
-          <Navbar />
-          <Content />
-        </div>
+      <div className='ml-[228px]'>
+        <Navbar />
+        <Content />
       </div>
     </>
   );
