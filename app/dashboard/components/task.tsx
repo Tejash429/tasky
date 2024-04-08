@@ -75,7 +75,7 @@ export default async function Task() {
         let created_at_str = getDate({ task });
         return (
           <div
-            className='flex justify-between hover:bg-[#1C1D2A] py-1  px-7 border-b h-12 border-[#212234] transition-all duration-300 ease-in-out'
+            className='cursor-pointer flex justify-between hover:bg-[#1C1D2A] py-1  px-7 border-b h-12 border-[#212234] transition-all duration-300 ease-in-out'
             key={task?.title}
           >
             <div className='flex gap-5 items-center'>
