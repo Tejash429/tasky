@@ -14,7 +14,7 @@ import {
 } from '@nextui-org/react';
 import { SquarePen } from '@/app/components/icons';
 import { Circle, Tag } from 'lucide-react';
-import { addTask } from '../action';
+import { addTask } from '../(dashboard)/action';
 import {
   Done,
   HighPriority,

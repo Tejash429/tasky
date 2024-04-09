@@ -9,8 +9,10 @@ import {
   NavbarItem,
 } from '@nextui-org/react';
 import { AlignJustify, ListFilter, Table } from 'lucide-react';
+import { useState } from 'react';
 
-export default function navbar() {
+export default function DashNav() {
+  const [Isactive, SetIsActive] = useState(0);
   return (
     <Navbar
       isBlurred={false}

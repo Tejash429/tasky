@@ -2,9 +2,10 @@
 import toast from 'react-hot-toast';
 
 import LoginButtons from '@/app/components/form-elements/buttons';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Link from 'next/link';
 import { useState } from 'react';
+import { createBrowserClient } from '@supabase/ssr';
+import { createClient } from '@/app/utils/supabase/client';
 
 export default function Login() {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -12,7 +13,8 @@ export default function Login() {
 
   const [email, setEmail] = useState('');
 
-  const supabase = createClientComponentClient();
+  // const supabase = createClientComponentClient();
+  const supabase = createClient();
   async function signInWithEmail() {
     const { data, error } = await supabase.auth.signInWithOtp({
       email,

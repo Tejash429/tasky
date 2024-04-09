@@ -3,9 +3,10 @@ import { FcGoogle } from 'react-icons/fc';
 
 import React from 'react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/app/utils/supabase/client';
 
 export default function LoginButtons({ i }: { i: number }) {
-  const supabase = createClientComponentClient();
+  const supabase = createClient();
 
   async function signInWithGoogle() {
     const { data, error } = await supabase.auth.signInWithOAuth({
