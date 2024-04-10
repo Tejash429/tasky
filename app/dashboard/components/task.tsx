@@ -14,6 +14,7 @@ import {
 import { AlarmCheck, Circle } from 'lucide-react';
 import { Select, SelectItem, Tooltip } from '@nextui-org/react';
 import { priorities } from './createIssueModal';
+import Link from 'next/link';
 
 export async function getTasks() {
   const cokkieStore = cookies();
@@ -45,7 +46,7 @@ async function getSortedTask() {
   return sortedTasks;
 }
 
-function getDate({ task }: { task: Task }) {
+function getDate({ task }: { task: Task; }) {
   const months = [
     'Jan',
     'Feb',
@@ -68,17 +69,17 @@ function getDate({ task }: { task: Task }) {
 export default async function Task() {
   const tasks = await getSortedTask();
 
-  console.log(tasks);
   return (
     <>
       {tasks?.map((task: Task) => {
         let created_at_str = getDate({ task });
         return (
-          <div
-            className='cursor-pointer flex justify-between hover:bg-[#1C1D2A] py-1  px-7 border-b h-12 border-[#212234] transition-all duration-300 ease-in-out'
-            key={task?.title}
+          <Link
+            className='flex justify-between hover:bg-[#1C1D2A] py-1  px-7 border-b h-12 border-[#212234] transition-all duration-300 ease-in-out'
+            key={task?.id}
+            href={`/t/${task.id}`}
           >
-            <div className='flex gap-5 items-center'>
+            <div className='flex gap-3 items-center'>
               <Tooltip
                 showArrow={true}
                 content={task.priority}
@@ -96,12 +97,9 @@ export default async function Task() {
               </Tooltip>
 
               <div className='text-[#CCCCCC]'>TASK-{task.id}</div>
-              <div className='flex items-center gap-2'>
+              <div className='flex items-center gap-3'>
                 {Status(task.status)}
-                <div
-                  className='text-white font-medium
-               text-base'
-                >
+                <div className='text-white font-medium text-sm'>
                   {task.title}
                 </div>
               </div>
@@ -116,7 +114,7 @@ export default async function Task() {
 
               <div className='text-[#858699] text-sm'>{created_at_str}</div>
             </div>
-          </div>
+          </Link>
         );
       })}
     </>

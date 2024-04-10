@@ -1,12 +1,10 @@
 'use server';
 
-import { createServerActionClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/app/utils/supabase/server';
 import { revalidatePath } from 'next/cache';
-import { cookies } from 'next/headers';
 
 export async function addTask(formData: FormData) {
-  const cookieStore = cookies();
-  const supabase = createServerActionClient({ cookies: () => cookieStore });
+  const supabase = createClient();
   const task = Object.fromEntries(formData);
 
   const { error } = await supabase.from('task').insert({ ...task });

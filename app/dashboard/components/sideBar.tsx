@@ -11,7 +11,7 @@ export default function SideBar() {
       <div className='flex  justify-between'>
         <p>Team Name</p>
         {/* dropdown */}
-        <div className='dropdown dropdown-bottom'>
+        <div className='dropdown dropdown-bottom z-10'>
           <div tabIndex={0} role='button' className='avatar'>
             <User size={18} className='cursor-pointer' />
           </div>
