@@ -1,9 +1,11 @@
 'use client';
 import { Button, Input } from '@nextui-org/react';
+import Link from 'next/link';
 import React, { useState } from 'react';
 
 export default function Page() {
   const [name, setName] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <div className='bg-[#191A23] h-screen flex justify-center items-center  flex-col '>
       <div className='w-96 flex flex-col gap-8'>
@@ -45,6 +47,8 @@ export default function Page() {
           <Button
             className='w-9/12 font-medium text-sm bg-blue-800 rounded-[4px]'
             radius='none'
+            as={Link}
+            href='/dashboard'
           >
             Create Workspace
           </Button>
