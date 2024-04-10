@@ -1,6 +1,6 @@
 'use client';
 
-export default function Setting() {
+export default function UserSetting() {
     return (
         <main className="py-1 bg-[#191A23] h-screen">
             <div className="w-full lg:w-8/12 px-4 mx-auto mt-6">
