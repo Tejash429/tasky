@@ -11,7 +11,7 @@ import {
   MediumPriority,
   UrgentPriority,
 } from './icons';
-import { AlarmCheck, Circle } from 'lucide-react';
+import { Circle } from 'lucide-react';
 import { Select, SelectItem, Tooltip } from '@nextui-org/react';
 import { priorities } from './createIssueModal';
 import Link from 'next/link';
@@ -46,7 +46,7 @@ async function getSortedTask() {
   return sortedTasks;
 }
 
-function getDate({ task }: { task: Task; }) {
+function getDate({ task }: { task: Task }) {
   const months = [
     'Jan',
     'Feb',
@@ -77,7 +77,7 @@ export default async function Task() {
           <Link
             className='flex justify-between hover:bg-[#1C1D2A] py-1  px-7 border-b h-12 border-[#212234] transition-all duration-300 ease-in-out'
             key={task?.id}
-            href={`/t/${task.id}`}
+            href={`dashboard/t/${task.id}`}
           >
             <div className='flex gap-3 items-center'>
               <Tooltip

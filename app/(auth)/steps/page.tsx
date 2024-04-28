@@ -1,11 +1,24 @@
 'use client';
-import { Button, Input } from '@nextui-org/react';
+import { createClient } from '@/app/utils/supabase/client';
+import { Button, Input, User } from '@nextui-org/react';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Page() {
   const [name, setName] = useState('');
+  const [user, setUser] = useState<User | null>(null);
+  // const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const client = createClient();
+
+  useEffect(() => {
+    async function getUser() {
+      setUser((await client.auth.getUser()).data.user);
+    }
+    getUser();
+  }, []);
+  console.log(user, '-----------------');
+
   return (
     <div className='bg-[#191A23] h-screen flex justify-center items-center  flex-col '>
       <div className='w-96 flex flex-col gap-8'>
@@ -63,8 +76,14 @@ export default function Page() {
           Log out
         </Button>
         <div className='text-[#858699] text-sm absolute right-6 top-6'>
-          <p className=''>Logged in as</p>
-          <span className='text-[#D2D3E0]'>pateltejash429@gmail.com</span>
+          {user ? (
+            <>
+              <p className=''>Logged in as</p>
+              <span className='text-[#D2D3E0]'>{user.email}</span>
+            </>
+          ) : (
+            <p>Not logged in</p>
+          )}
         </div>
       </div>
     </div>

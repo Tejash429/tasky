@@ -8,6 +8,7 @@ export default async function page() {
 
   const { data, error } = await supabase.auth.getUser();
 
+  console.log({ data, error });
   // console.log(data, error?.message);
 
   if (data) {

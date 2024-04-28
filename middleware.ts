@@ -2,23 +2,26 @@ import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
 import { NextResponse } from 'next/server';
 
 import { NextRequest } from 'next/server';
+import { updateSession } from './app/utils/supabase/middleware';
 
 export async function middleware(req: NextRequest) {
-  const res = NextResponse.next();
-  const url = req.nextUrl.clone();
+  return await updateSession(req);
 
-  if (req.nextUrl.pathname === '/') {
-    // Create a Supabase client configured to use cookies
-    const supabase = createMiddlewareClient({ req, res });
+  // const res = NextResponse.next();
+  // const url = req.nextUrl.clone();
 
-    // Refresh session if expired - required for Server Components
-    const { data: session, error } = await supabase.auth.getSession();
+  // if (req.nextUrl.pathname === '/') {
+  //   // Create a Supabase client configured to use cookies
+  //   const supabase = createMiddlewareClient({ req, res });
 
-    url.pathname = error ? '/login' : '/steps';
+  //   // Refresh session if expired - required for Server Components
+  //   const { data: session, error } = await supabase.auth.getSession();
 
-    return NextResponse.redirect(url);
-  }
-  return res;
+  //   url.pathname = error ? '/login' : '/steps';
+
+  //   return NextResponse.redirect(url);
+  // }
+  // return res;
 }
 
 // Ensure the middleware is only called for relevant paths.

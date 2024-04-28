@@ -30,12 +30,13 @@ export default function SideBar() {
                 data-key='settings'
                 className='flex group gap-2 justify-between relative px-2 py-1.5 w-full h-full box-border rounded-small subpixel-antialiased cursor-pointer tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[focus-visible=true]:dark:ring-offset-background-content1 data-[hover=true]:transition-colors data-[hover=true]:bg-default/40 data-[hover=true]:text-default-foreground data-[selectable=true]:focus:bg-default/40 data-[selectable=true]:focus:text-default-foreground'
               >
-                <span
+                <Link
                   id='react-aria9876499756-:r5:'
                   className='flex-1 text-small font-normal truncate'
+                  href={'/dashboard/settings'}
                 >
                   My Settings
-                </span>
+                </Link>
               </li>
               <li
                 role='menuitem'
@@ -133,10 +134,13 @@ export default function SideBar() {
         </Button>
       </div>
       <div className='flex flex-col gap-1'>
-        <div className='flex gap-2 items-center hover:bg-[#262736] py-1 rounded-md pl-2'>
+        <Link
+          className='flex gap-2 items-center hover:bg-[#262736] py-1 rounded-md pl-2'
+          href={'/dashboard'}
+        >
           <Folder size={20} />
           My Tasks
-        </div>
+        </Link>
         <div className='flex gap-2 items-center hover:bg-[#262736]  py-1 rounded-md pl-2'>
           <Users size={20} />
           Teams
